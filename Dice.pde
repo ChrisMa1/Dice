@@ -3,7 +3,7 @@ void setup(){
   stroke(0,0,0);
   //noLoop();
 }
-int side=4;
+int side=8;
 int c=0;
 void dice(int x,int y,int n){
   strokeWeight(1);
