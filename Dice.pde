@@ -1,13 +1,16 @@
 void setup(){
-  size(1024,768);
+  size(1000,660);
   stroke(0,0,0);
   //noLoop();
 }
-int side=8;
+int side=5;
+boolean show=true;
 int c=0;
+int total=0;
 void dice(int x,int y,int n){
   strokeWeight(1);
-  rect(x,y,side,side,2);
+  noFill();
+  rect(x,y,side,side,1);
   strokeWeight(1);
   if(n==1){
     point(x+side/2, y+side/2);
@@ -42,18 +45,29 @@ void draw(){
   c=0;
   background(255,255,255);
   fill(255,255,255);
-  for(int i=0; i<width-side; i+=side){
-    for(int j=0; j<height-side; j+=side){
-      dice(i,j,(int)(Math.random()*6+1));
-      c++;
+  for(int i=0; i<width-side+1; i+=side){
+    for(int j=0; j<height-side+1; j+=side){
+       int dots=(int)(Math.random()*6+1);
+       total+=dots;
+       dice(i,j,dots);
+       c++; 
     }  
   }
-  fill(50,50,255);
+  if(show){
+    fill(50,50,255);
   textAlign(CENTER,CENTER);
-  textSize(8);
-  text(c+" Dice", width*0.5, height-5);
+  textSize(50);
+  text(c+" Dice", width*0.5, height*0.5);
+  textSize(30);
+  text("Total: "+total+" dots", width*0.5, height*0.5+50);
+  }
   noLoop();
 };
 void mouseClicked(){
+  if(show){
+    show=false;
+  }else{
+    show=true;
+  }
   redraw();
 }
