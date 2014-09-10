@@ -64,6 +64,7 @@ void draw(){
   noLoop();
 };
 void mouseClicked(){
+  c=0;
   if(show){
     show=false;
   }else{
