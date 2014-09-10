@@ -13,32 +13,32 @@ void dice(int x,int y,int n){
   rect(x,y,side,side,1);
   strokeWeight(1);
   if(n==1){
-    point(x+side/2, y+side/2);
+    point(x+side*2/5, y+side*2/5);
   }
   if(n==2){
-    point(x+side/4, y+side/4);
-    point(x+side*3/4, y+side*3/4 );
+    point(x+side*1/5, y+side*1/5);
+    point(x+side*3/5, y+side*3/5 );
   }
   if(n==3){
     dice(x,y,2);
-    point(x+side/2,y+side/2);
+    point(x+side*2/5,y+side*2/5);
   }
   if(n==4){
     dice(x,y,2);
-    point(x+side*3/4,y+side/4);
-    point(x+side/4,y+side*3/4);
+    point(x+side*3/5,y+side/5);
+    point(x+side/5,y+side*3/5);
   }
   if(n==5){
     dice(x,y,4);
     dice(x,y,1);
   }
   if(n==6){
-    point(x+side/3, y+side/4);  
-    point(x+side/3, y+side/2);
-    point(x+side/3, y+side*3/4);
-    point(x+side*2/3, y+side/4);  
-    point(x+side*2/3, y+side/2);
-    point(x+side*2/3, y+side*3/4);
+    point(x+side/5, y+side/5);  
+    point(x+side/5, y+side*2/5);
+    point(x+side/5, y+side*3/5);
+    point(x+side*3/5, y+side/5);  
+    point(x+side*3/5, y+side*2/5);
+    point(x+side*3/5, y+side*3/5);
   }
 }
 void draw(){
