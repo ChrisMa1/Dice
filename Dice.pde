@@ -47,9 +47,9 @@ void dice(int x,int y,int n){
     point(x, y+side/4);  
     point(x, y+side*2/4);
     point(x, y+side*3/4);
-    point(x+side*2/3, y+side/4);  
-    point(x+side*2/3, y+side*2/4);
-    point(x+side*2/3, y+side*3/4);
+    point(x+side*2/4, y+side/4);  
+    point(x+side*2/4, y+side*2/4);
+    point(x+side*2/4, y+side*3/4);
   }
 }
 void draw(){
