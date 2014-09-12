@@ -3,46 +3,57 @@ void setup(){
   stroke(0,0,0);
   //noLoop();
 }
-int side=5;
-boolean show=true;
-int c=0;
+int side=4; //size of dice
+boolean showCount=true; //display counters over dice
+int ct=0; //
 int total=0;
 void dice(int x,int y,int n){
-  strokeWeight(1);
-  noFill();
+  noStroke();
+  if((x+y)%8==0){
+    fill(255,255,255);
+  }else{
+    fill(175,175,175);
+  }
+  
   rect(x,y,side,side,1);
   strokeWeight(1);
+  stroke(0);
   if(n==1){
-    point(x+side*2/5, y+side*2/5);
+    point(x+side/4, y+side/4);
   }
   if(n==2){
-    point(x+side*1/5, y+side*1/5);
-    point(x+side*3/5, y+side*3/5 );
+    point(x, y);
+    point(x+side/2,y+side/2);
   }
   if(n==3){
-    dice(x,y,2);
-    point(x+side*2/5,y+side*2/5);
+    point(x, y);
+    point(x+side/2,y+side/2);
+    point(x+side*1/4,y+side*1/4);
   }
   if(n==4){
-    dice(x,y,2);
-    point(x+side*3/5,y+side/5);
-    point(x+side/5,y+side*3/5);
+    point(x, y);
+    point(x+side/2,y+side/2);
+    point(x+side/2,y);
+    point(x,y+side/2);
   }
   if(n==5){
-    dice(x,y,4);
-    dice(x,y,1);
+    point(x, y);
+    point(x+side/2,y+side/2);
+    point(x+side/2,y);
+    point(x,y+side/2);
+    point(x+side/4, y+side/4);
   }
   if(n==6){
-    point(x+side/5, y+side/5);  
-    point(x+side/5, y+side*2/5);
-    point(x+side/5, y+side*3/5);
-    point(x+side*3/5, y+side/5);  
-    point(x+side*3/5, y+side*2/5);
-    point(x+side*3/5, y+side*3/5);
+    point(x, y+side/4);  
+    point(x, y+side*2/4);
+    point(x, y+side*3/4);
+    point(x+side*2/3, y+side/4);  
+    point(x+side*2/3, y+side*2/4);
+    point(x+side*2/3, y+side*3/4);
   }
 }
 void draw(){
-  c=0;
+  ct=0;
   background(255,255,255);
   fill(255,255,255);
   for(int i=0; i<width-side+1; i+=side){
@@ -50,25 +61,24 @@ void draw(){
        int dots=(int)(Math.random()*6+1);
        total+=dots;
        dice(i,j,dots);
-       c++; 
+       ct++; 
     }  
   }
-  if(show){
+  if(showCount){
     fill(50,50,255);
   textAlign(CENTER,CENTER);
   textSize(50);
-  text(c+" Dice", width*0.5, height*0.5);
+  text(ct+" Dice", width*0.5, height*0.5);
   textSize(30);
   text("Total: "+total+" dots", width*0.5, height*0.5+50);
   }
   noLoop();
 };
 void mouseClicked(){
-  total=0;
-  if(show){
-    show=false;
+  if(showCount){
+    showCount=false;
   }else{
-    show=true;
+    showCount=true;
   }
   redraw();
 }
