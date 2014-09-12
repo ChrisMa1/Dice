@@ -44,12 +44,12 @@ void dice(int x,int y,int n){
     point(x+side/4, y+side/4);
   }
   if(n==6){
-    point(x, y+side/4);  
+    point(x, y);  
+    point(x, y+side*1/4);
     point(x, y+side*2/4);
-    point(x, y+side*3/4);
-    point(x+side*2/4, y+side/4);  
+    point(x+side*2/4, y);  
+    point(x+side*2/4, y+side*1/4);
     point(x+side*2/4, y+side*2/4);
-    point(x+side*2/4, y+side*3/4);
   }
 }
 void draw(){
