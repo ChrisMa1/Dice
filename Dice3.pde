@@ -36,7 +36,7 @@ class Die{ //models one single dice cube
     fill(255);
     rect(myX, myY, siz * 10, siz * 10); 
     fill(0, 0, 0);
-    System.out.println(rollResult);
+    //System.out.println(rollResult);
 
     if (rollResult == 1) 
     {
