@@ -1,7 +1,7 @@
 void setup(){
-  loop();
+  //loop();
   //frameRate(20);  //framerate defined twice
-  frameRate(10);
+  //frameRate(10);
   size(400, 400);
   prepareTo = new Die(0, 0);
   polarMolecule = new Die(200, 0);
