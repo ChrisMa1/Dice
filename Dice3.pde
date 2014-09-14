@@ -5,30 +5,27 @@ void setup(){
   size(400, 400);
   prepareTo = new Die(0, 0);
   polarMolecule = new Die(200, 0);
-  multiplyDice = false;
-  resetDice = false;
 }
 
 Die prepareTo, polarMolecule;
-boolean startRolling, multiplyDice, resetDice;
+boolean startRolling;
+boolean multiplyDice=false;
+boolean resetDice=false;
 int myVar;
 
 
-class Die //models one single dice cube
-{
+class Die{ //models one single dice cube
   //variable declarations here
   int myX, myY, rollResult, siz;
-  Die(int inX, int inY) //constructor
-  {
+  Die(int inX, int inY){ //constructor
     //variable initializations here
     siz = 20;
     myX = inX;
     myY = inY;
-    rollResult = 6;
-    
+    //rollResult = 6;  
+     //rollResult=(int)(Math.random()*6) +1; 
   }
-  void roll()
-  {
+  void roll(){
     if (startRolling) {
       rollResult = (int)(Math.random()*6) + 1;
     }
@@ -37,7 +34,7 @@ class Die //models one single dice cube
   void show()
   {
     fill(255);
-    rect(myX, myY, siz * 10, siz * 10);
+    rect(myX, myY, siz * 10, siz * 10); 
     fill(0, 0, 0);
     System.out.println(rollResult);
 
@@ -88,15 +85,13 @@ void draw()
     prepareTo = new Die(prepareTo.myX + prepareTo.siz, prepareTo.myY + prepareTo.siz);
   }
 
-  if (resetDice) 
-  {
+  if (resetDice){
     prepareTo.siz = 20;
     polarMolecule.siz = 20;
     prepareTo.myX = 0;
     prepareTo.myY = 0;
     polarMolecule.myX = 200;
     polarMolecule. myY = 0;
-
     resetDice = false;
   }
 
@@ -110,22 +105,21 @@ void draw()
     fill(255);
     text("Total: " + (prepareTo.rollResult + polarMolecule.rollResult), 20, 380);
   }
-  myVar ++;
+  myVar++;
   
   
 }
-void mousePressed()
-{
-  if (mouseButton == LEFT) {
+void mousePressed(){
+  if (mouseButton == LEFT){
     
-  }
-  else if (mouseButton == RIGHT) {
-    multiplyDice = true;
-  } else if (mouseButton == CENTER) 
-  {
-    multiplyDice = false;
-    resetDice = true;
-  }
+  }else 
+    if(mouseButton == RIGHT){
+      multiplyDice = true;
+    }else
+      if (mouseButton == CENTER){
+        multiplyDice = false;
+        resetDice = true;
+      }
   myVar = 0;
 }
 
